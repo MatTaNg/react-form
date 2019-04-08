@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 
 export default function inputReducer(state = { users: [], }, action) {
 	let originalUsers = [...state.users];
+	console.log("Action", action);
 	switch (action.type) {
 		case 'ADD':
 			let users = state.users.concat(action.payload);

@@ -10,7 +10,8 @@ export class InputBox extends Component {
 		super(props);
 		this.state = {
 			name: "",
-			users: []
+			users: [],
+			editUserName: ""
 		};
 	}
 
@@ -64,9 +65,9 @@ export class InputBox extends Component {
 		let newState = [...this.state.users]
 		newState[i].edit = false;
 		this.setState({
-			users: newState
+			users: newState			
 		})
-		this.props.editName(i, this.state.users[i].name);
+		this.props.editName(i, this.state.editUserName);
 
 	}
 
@@ -75,10 +76,17 @@ export class InputBox extends Component {
 		this.props.deleteName(newState[i].name);
 	}
 
+	editOnChangeHandler = (e) => {
+		this.setState({
+			editUserName: e.target.value
+		})
+
+	};
+
 	editUser = (i) => {
 		return (
 			<div>
-				<input type="text" value={this.state.users[i].name}/>
+				<input defaultValue={this.state.users[i].name} onChange={this.editOnChangeHandler} type="text"/>
 				<input type="submit" onClick={this.submitChange(i)} />
 				<span onClick={this.closeEdit(i)}>close</span>
 				<span onClick={this.delete(i)}>delete</span>
@@ -101,9 +109,9 @@ export class InputBox extends Component {
 
 	userElement = (i) => {
 		return (
-			<div>
-				<li key={i}>{this.state.users[i].name}
-					<span onClick={this.edit(i)}>Edit</span>
+			<div key={i}>
+				<li >{this.state.users[i].name}
+					<span defaultValue={this.state.users[i].name} onClick={this.edit(i)}>Edit</span>
 					{ this.state.users[i].edit && this.editUser(i) }
 					
 				</li>
