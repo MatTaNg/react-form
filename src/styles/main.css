@@ -36,6 +36,7 @@ body {
 	transform: translate(-50%, -50%);
 	background-color: #d5f0f5;
 	width: 30vw;
+	min-width: 30rem;
 	font-size: 2.5rem;
 	padding: 30px;
 	border: 2px solid black;
@@ -51,20 +52,37 @@ body {
 	padding-top: 10px;
 }
 .input {
-	display: block;
+	display: inline-block;
 	width: 90%;
 	font-size: 2.5rem;
 }
-.submit {
-	margin-top: 10px;
-	display: block;
+.btn {
+	margin: 10px;
+	display: inline-block;
 	font-size: 2rem;	
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0,.2);
+    text-transform: uppercase;
+    width: 20rem;
+    text-align: center;
+
+	background-color: #3ee2ea;
+	color: black;
+	padding: 1.5rem 4rem;
+	border-radius: 10rem;
+	border: none;
+	cursor: pointer;
+	transition: all .2s;
+	text-decoration: none;
 }
-.submit:hover {
-	transform: translateY(-2px);
+.btn:hover {
+	transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0,.2);
 }
-.submit:active {
-	transform: translateY(0px);
+.btn:focus,
+.btn:active {
+	outline: none;
+	transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0,.2);
 }
 .redirect {
 	display: block;
@@ -72,6 +90,18 @@ body {
 	font-size: 2rem;
 }
 .error {
+	display: block;
+	width: 100%;
 	font-size: 1.8rem;
 	color: orangered;
+}
+.delete {
+	color: orangered;
+	cursor: pointer;
+}
+.float-element {
+	float: left;
+}
+.content-main {
+	width: 20vw;
 }

@@ -9,6 +9,7 @@ export const userActions = {
 	register,
 	_delete,
 	listUsers,
+	error,
 	resetError
 }
 
@@ -24,7 +25,6 @@ function login(username, password) {
 	};
 	
 	function success(user) { return { type: userConstants.LOGIN, payload: user } };
-	function error(error) { return { type: userConstants.ERROR, payload: error } };
 };
 
 function logout() { 
@@ -37,7 +37,6 @@ function logout() {
 	};
 	
 	function success() { return { type: userConstants.LOGOUT} };
-	function error(error) { return { type: userConstants.ERROR, payload: error } };
 };
 
 function _delete(id) {
@@ -49,14 +48,11 @@ function _delete(id) {
 		});
 	}
 	function success(users) { return { type: userConstants.DELETE, users} };
-	function error(err) { return { type: userConstants.ERROR, payload: err } };	
 }
 
 function listUsers() {
-	console.log("List Users");
 	return dispatch => {
 		localStorageService.listUsers().then((response) => {
-			console.log("Response", response);
 			dispatch(success(JSON.parse(response)));
 		}, (err) => {
 			dispatch(error(err));
@@ -64,7 +60,6 @@ function listUsers() {
 	}
 
 	function success(users) { return { type: userConstants.LIST_USERS, users } }
-	function error(error) { return { type: userConstants.ERROR, payload: error }} ;
 };
 
 function register(user) { 
@@ -77,9 +72,12 @@ function register(user) {
 		});
 	};
 	function success(user) { return { type: userConstants.REGISTER, payload: user } };
-	function error(error) { return { type: userConstants.ERROR, payload: error } };
 };
 
 function resetError() {
 	return { type: userConstants.RESET_ERROR, payload: "" };
+};
+
+function error(err) {
+	return { type: userConstants.ERROR, payload: err };
 };

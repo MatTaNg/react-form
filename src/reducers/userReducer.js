@@ -18,10 +18,10 @@ export function userReducer(state = initialState, action) {
 			originalState.loggedInUser = '';
 			return originalState;
 		case userConstants.LIST_USERS:
-			originalState.users = action.users;
+			originalState.users = [...action.users];
 			return originalState;
 		case userConstants.DELETE:
-			originalState.users = action.users;
+			originalState.users = [...action.users];
 			return originalState;
 		case userConstants.ERROR:
 			originalState.error = action.payload;

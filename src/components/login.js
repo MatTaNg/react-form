@@ -47,10 +47,10 @@ class Login extends PureComponent {
 		      		 	<label className="label" htmlFor="password">Password:</label>
 		      		 	<input className="input" name="password" type="password" onChange={this.handleChange} id="password"/>
 
-		      		 	<input className="submit" type="submit" onClick={this.login} value="Login"></input>
+		      		 	<input className="btn float-element" type="submit" onClick={this.login} value="Login"></input>
 	      		 	</form>
 
-	      		 	<Link className="redirect" to="/register">Register</Link>
+	      		 	<Link className="btn" to="/register">Register</Link>
 
 	      		 	<br />
 	      		 	<span className="error">{ this.props.error }</span>

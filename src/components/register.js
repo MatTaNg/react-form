@@ -17,8 +17,7 @@ class Register extends PureComponent {
 				lastName: '',
 				userName: '',
 				password: ''
-			},
-			error: ''
+			}
 		}
 	}
 
@@ -33,21 +32,20 @@ class Register extends PureComponent {
         });
 	}
 
-	submitForm = (e) => {
+	submitForm = async (e) => {
         e.preventDefault();
 
         const { user } = this.state;
         const { dispatch } = this.props;
         if (user.firstName && user.lastName && user.userName && user.password) {
-            this.props.dispatch(userActions.register(user));
+            await this.props.dispatch(userActions.register(user));
+            if(this.props.error === "") {
+	    		this.props.history.push("/login");	
+			}
         } else {
-        	this.setState({
-        		error: "Form Incomplete"
-        	})
+        	this.props.dispatch(userActions.error("Form Incomplete"));
         }
-        if(this.props.error === "") {
-	    	this.props.history.push("/login");	
-		}
+
 	}
 
 	render() {
@@ -71,13 +69,13 @@ class Register extends PureComponent {
 						<label className="label" htmlFor="password">Password</label>
 						<input className="input" type="password" name="password" value={user.password} onChange={this.handleFormChange} />
 
-						<input className="submit" type="submit" name="submit" value="Register" />
+						<input className="btn float-element" type="submit" name="submit" value="Register" />
 					</form>
 				
-	      		 	<Link className="redirect" to="/login">Cancel</Link>
+	      		 	<Link className="btn" to="/login">Cancel</Link>
 
 	      		 	<br />
-	      		 	<span className="error">{ this.state.error }</span>
+	      		 	<span className="error">{ this.props.error }</span>
       		 	</div>
 			</section>
 		);
