@@ -31,18 +31,20 @@ class Login extends PureComponent {
 			return <Redirect to="/main" />
 		}
 		return (
-			<div>
-				<h1>Login</h1>
+			<div className="container">
+				<h1 className="header">Login</h1>
+				
+				<form className="form">
+		        	<label className="label" htmlFor="username">User Name:</label>
+	      		 	<input className="input" name="username" type="text" onChange={this.handleChange} id="username"/>
 
-	        	<label htmlFor="username">User Name:</label>
-      		 	<input name="username" type="text" onChange={this.handleChange} id="username"/>
+	      		 	<label className="label" htmlFor="password">Password:</label>
+	      		 	<input className="input" name="password" type="password" onChange={this.handleChange} id="password"/>
 
-      		 	<label htmlFor="password">Password:</label>
-      		 	<input name="password" type="password" onChange={this.handleChange} id="password"/>
+	      		 	<input className="submit" type="submit" onClick={this.login} value="Login"></input>
+      		 	</form>
 
-      		 	<input type="submit" onClick={this.login} value="Login"></input>
-
-      		 	<Link to="/register">Register</Link>
+      		 	<Link className="redirect" to="/register">Register</Link>
 
       		 	<br />
       		 	{ this.props.error }
