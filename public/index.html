@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="/styles/main.css" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -23,9 +24,36 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
+  <style>
+
+    .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: .50;
+        overflow: hidden;
+    }
+    .background-video-content {
+      height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+  </style>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div class="background-video">
+          <video class="background-video-content" autoplay muted loop>
+            <source src="/assets/video.mp4" type="video/mp4"/>
+            <source src="/assets/video.webm" type="video/webm"/>
+            Your browser does not support videos!
+          </video>
+        </div>
     <div id="root"></div>
     <!--
       This HTML file is a template.

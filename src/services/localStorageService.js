@@ -2,21 +2,23 @@ let users = JSON.parse(localStorage.getItem('users')) || [];
 let loggedInUser = localStorage.getItem('loggedInUser') || '';
 
 export const localStorageService = {
-	getAll,
 	login,
 	logout,
+	listUsers,
 	register
 }
 
-function getAll() {
+function listUsers() {
 	return new Promise((resolve, reject) => {
-		resolve({ text: () => Promise.resolve(JSON.stringify(users)) });	
+			console.log("TEST", users);
+
+        resolve(JSON.stringify(users));
+
 	})
 };
 
 function logout() {
 	return new Promise((resolve, reject) => {
-
 		localStorage.setItem('loggedInUser', '');
 		resolve();
 	});

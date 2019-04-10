@@ -25,6 +25,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "css-loader": "^2.1.1",
     "eslint-plugin-flowtype": "^3.2.1",
     "eslint-plugin-import": "^2.15.0",
     "eslint-plugin-jsx-a11y": "^6.2.0",
@@ -32,6 +33,7 @@
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
     "store": "^2.0.12",
+    "style-loader": "^0.23.1",
     "webpack-cli": "^3.2.1"
   }
 }

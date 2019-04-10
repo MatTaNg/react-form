@@ -1,15 +1,77 @@
+//INITIAL SETUP START
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+//INITIAL SETUP END
 .container {
 	position: relative;
+	display: block;
+	height: 40vw;
+	width: 40vw;
+}
+.content {
+	position: absolute;
+	display: block;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #d5f0f5;
+	width: 30vw;
+	font-size: 2.5rem;
+	padding: 30px;
+	border: 2px solid black;
+}
+.heading {
+	font-size: 3rem;
+}
+.form {
+
 }
 .label {
-	
+	display: block;
+	padding-top: 10px;
 }
 .input {
-
+	display: block;
+	width: 90%;
+	font-size: 2.5rem;
 }
 .submit {
-
+	margin-top: 10px;
+	display: block;
+	font-size: 2rem;	
+}
+.submit:hover {
+	transform: translateY(-2px);
+}
+.submit:active {
+	transform: translateY(0px);
 }
 .redirect {
-
+	display: block;
+	margin-top: 10px;
+	font-size: 2rem;
+}
+.error {
+	font-size: 1.5rem;
+	font-color: orangered;
 }

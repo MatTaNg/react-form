@@ -7,6 +7,7 @@ export const userActions = {
 	login,
 	logout,
 	register,
+	listUsers,
 	resetError
 }
 
@@ -36,6 +37,21 @@ function logout() {
 	
 	function success() { return { type: userConstants.LOGOUT} };
 	function error(error) { return { type: userConstants.ERROR, payload: error } };
+};
+
+function listUsers() {
+	console.log("List Users");
+	return dispatch => {
+		localStorageService.listUsers().then((response) => {
+			console.log("Response", response);
+			dispatch(success(JSON.parse(response)));
+		}, (err) => {
+			dispatch(error(err));
+		})
+	}
+
+	function success(users) { return { type: userConstants.LIST_USERS, users } }
+	function error(error) { return { type: userConstants.ERROR, payload: error }} ;
 };
 
 function register(user) { 

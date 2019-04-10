@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
 
 import { userActions } from './../actions';
+import './../styles/main.css';
 
 class Login extends PureComponent {
 
@@ -31,24 +32,29 @@ class Login extends PureComponent {
 			return <Redirect to="/main" />
 		}
 		return (
-			<div className="container">
-				<h1 className="header">Login</h1>
+			<section className="container">
+
+      
+				<div className="content">
 				
-				<form className="form">
-		        	<label className="label" htmlFor="username">User Name:</label>
-	      		 	<input className="input" name="username" type="text" onChange={this.handleChange} id="username"/>
+					<h1 className="heading">Login</h1>
 
-	      		 	<label className="label" htmlFor="password">Password:</label>
-	      		 	<input className="input" name="password" type="password" onChange={this.handleChange} id="password"/>
+					<form className="form">
+			        	<label className="label" htmlFor="username">User Name:</label>
+		      		 	<input className="input" name="username" type="text" onChange={this.handleChange} id="username"/>
 
-	      		 	<input className="submit" type="submit" onClick={this.login} value="Login"></input>
-      		 	</form>
+		      		 	<label className="label" htmlFor="password">Password:</label>
+		      		 	<input className="input" name="password" type="password" onChange={this.handleChange} id="password"/>
 
-      		 	<Link className="redirect" to="/register">Register</Link>
+		      		 	<input className="submit" type="submit" onClick={this.login} value="Login"></input>
+	      		 	</form>
 
-      		 	<br />
-      		 	{ this.props.error }
-			</div>
+	      		 	<Link className="redirect" to="/register">Register</Link>
+
+	      		 	<br />
+	      		 	<span className="error">{ this.props.error }</span>
+      		 	</div>
+			</section>
 		);
 	};
 

@@ -3,6 +3,7 @@ export const userConstants = {
 	LOGIN: 'LOGIN',
 	LOGOUT: 'LOGOUT',
 	REGISTER: 'REGISTER',
+	LIST_USERS: 'LIST_USERS',
 	RESET_ERROR: 'RESET_ERROR',
 	ERROR: 'ERROR'
 }

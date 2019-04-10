@@ -17,6 +17,10 @@ export function userReducer(state = initialState, action) {
 		case userConstants.LOGOUT:
 			originalState.loggedInUser = '';
 			return originalState;
+		case userConstants.LIST_USERS:
+			console.log("LSIT USERS", action);
+			originalState.users = action.users;
+			return originalState;
 		case userConstants.ERROR:
 			originalState.error = action.payload;
 			return originalState;

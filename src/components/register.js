@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 
 import { userActions } from './../actions';
+import './../styles/main.css';
 
 class Register extends PureComponent {
 	constructor(props) {
@@ -45,29 +46,33 @@ class Register extends PureComponent {
 	render() {
         const { user } = this.state;
 		return (
-			<div>
-				<h1>Register</h1>
-				<form name="registrationForm" onSubmit={this.submitForm}>
-					<label htmlFor="firstName">First Name</label>
-					<input type="text" name="firstName" value={user.firstName} onChange={this.handleFormChange} />
+			<section className="container">
 
-					<label htmlFor="lastName">Last Name</label>
-					<input type="text" name="lastName" value={user.lastName} onChange={this.handleFormChange} />
 
-					<label htmlFor="userName">User Name</label>
-					<input type="text" name="userName" value={user.userName} onChange={this.handleFormChange} />
+				<div className="content">
+					<h1 className="heading">Register</h1>
+					<form className="form" name="registrationForm" onSubmit={this.submitForm}>
+						<label className="label" htmlFor="firstName">First Name</label>
+						<input className="input" type="text" name="firstName" value={user.firstName} onChange={this.handleFormChange} />
 
-					<label htmlFor="password">Password</label>
-					<input type="password" name="password" value={user.password} onChange={this.handleFormChange} />
+						<label className="label" htmlFor="lastName">Last Name</label>
+						<input className="input" type="text" name="lastName" value={user.lastName} onChange={this.handleFormChange} />
 
-					<input type="submit" name="submit" value="Register" />
-				</form>
+						<label className="label" htmlFor="userName">User Name</label>
+						<input className="input" type="text" name="userName" value={user.userName} onChange={this.handleFormChange} />
 
-      		 	<Link to="/login">Cancel</Link>
+						<label className="label" htmlFor="password">Password</label>
+						<input className="input" type="password" name="password" value={user.password} onChange={this.handleFormChange} />
 
-      		 	<br />
-      		 	{ this.props.error }
-			</div>
+						<input className="submit" type="submit" name="submit" value="Register" />
+					</form>
+				
+	      		 	<Link className="redirect" to="/login">Cancel</Link>
+
+	      		 	<br />
+	      		 	<span className="error">{ this.props.error }</span>
+      		 	</div>
+			</section>
 		);
 	}
 }
