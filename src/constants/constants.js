@@ -1,0 +1,8 @@
+export const userConstants = {
+	REQUEST: 'REQUEST',
+	LOGIN: 'LOGIN',
+	LOGOUT: 'LOGOUT',
+	REGISTER: 'REGISTER',
+	RESET_ERROR: 'RESET_ERROR',
+	ERROR: 'ERROR'
+}

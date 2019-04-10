@@ -1,17 +1,31 @@
 import React from 'react';
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import rootReducer from './reducers';
+import userReducer from './reducers';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Login, Register, Main } from './components';
+import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer)
+const store = createStore(userReducer, applyMiddleware(thunk));
+
+const routes = (
+	<Router>
+		<Switch>
+			<Route path="/login" component={Login} />		
+			<Route path="/register" component={Register} />
+			<Route path="/main" component={Main} />
+			<Route path="/" component={App} />
+		</Switch>
+	</Router>
+)
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App /> 
+		{ routes }
 	</Provider>, 
 	document.getElementById('root')
 );
