@@ -4,6 +4,7 @@ let loggedInUser = localStorage.getItem('loggedInUser') || '';
 export const localStorageService = {
 	login,
 	logout,
+	_delete,
 	listUsers,
 	register
 }
@@ -46,6 +47,22 @@ function login(userName, password) {
 		return;
 	});
 };
+
+function _delete(id) {
+	return new Promise((resolve, reject) => {
+        for (let i = 0; i < users.length; i++) {
+            let user = users[i];
+            console.log("ID", id);
+            if (user.id === id) {
+                users.splice(i, 1);
+                localStorage.setItem('users', JSON.stringify(users));
+                break;
+            }
+        }
+        console.log("USERS", users);
+        resolve(users);
+	});
+}
 
 function register(newUser) {
 	return new Promise((resolve, reject) => {

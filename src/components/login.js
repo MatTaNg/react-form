@@ -18,6 +18,7 @@ class Login extends PureComponent {
 	}
 
 	login = (e) => {
+		e.preventDefault();
 		this.props.dispatch(userActions.login(this.state.username, this.state.password));
 	}
 

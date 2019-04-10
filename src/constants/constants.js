@@ -4,6 +4,7 @@ export const userConstants = {
 	LOGOUT: 'LOGOUT',
 	REGISTER: 'REGISTER',
 	LIST_USERS: 'LIST_USERS',
+	DELETE: 'DELETE',
 	RESET_ERROR: 'RESET_ERROR',
 	ERROR: 'ERROR'
 }

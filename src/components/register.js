@@ -6,6 +6,7 @@ import { userActions } from './../actions';
 import './../styles/main.css';
 
 class Register extends PureComponent {
+
 	constructor(props) {
 		super(props);
 
@@ -16,7 +17,8 @@ class Register extends PureComponent {
 				lastName: '',
 				userName: '',
 				password: ''
-			}
+			},
+			error: ''
 		}
 	}
 
@@ -34,13 +36,18 @@ class Register extends PureComponent {
 	submitForm = (e) => {
         e.preventDefault();
 
-        this.setState({ submitted: true });
         const { user } = this.state;
         const { dispatch } = this.props;
         if (user.firstName && user.lastName && user.userName && user.password) {
             this.props.dispatch(userActions.register(user));
+        } else {
+        	this.setState({
+        		error: "Form Incomplete"
+        	})
         }
-        this.props.history.push("/login");
+        if(this.props.error === "") {
+	    	this.props.history.push("/login");	
+		}
 	}
 
 	render() {
@@ -70,7 +77,7 @@ class Register extends PureComponent {
 	      		 	<Link className="redirect" to="/login">Cancel</Link>
 
 	      		 	<br />
-	      		 	<span className="error">{ this.props.error }</span>
+	      		 	<span className="error">{ this.state.error }</span>
       		 	</div>
 			</section>
 		);

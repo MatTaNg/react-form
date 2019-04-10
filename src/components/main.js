@@ -8,10 +8,6 @@ import './../styles/main.css';
 class Main extends PureComponent {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			users: []
-		}
 	}
 
 	componentDidMount () {
@@ -22,12 +18,16 @@ class Main extends PureComponent {
 		this.props.dispatch(userActions.logout());
 	};
 
+	deleteUser = id => e => {
+		this.props.dispatch(userActions._delete(id));		
+	}
+
 	makeUserList = () => {	
 		let result = [];
 		for(let i = 0; i < this.props.users.length; i++) {
-			result.push(<li key={i}>{this.props.users[i].userName} </li>);
+			result.push(<li key={i}>{this.props.users[i].userName} <span value={i} onClick={this.deleteUser(this.props.users[i].id)}> Delete </span> </li>);
 		}
-		return result;
+		return this.props.users.length === 0 ? [] : result;
 	}
 
 	render() {

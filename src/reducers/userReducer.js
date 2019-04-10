@@ -18,7 +18,9 @@ export function userReducer(state = initialState, action) {
 			originalState.loggedInUser = '';
 			return originalState;
 		case userConstants.LIST_USERS:
-			console.log("LSIT USERS", action);
+			originalState.users = action.users;
+			return originalState;
+		case userConstants.DELETE:
 			originalState.users = action.users;
 			return originalState;
 		case userConstants.ERROR:

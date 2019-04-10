@@ -7,6 +7,7 @@ export const userActions = {
 	login,
 	logout,
 	register,
+	_delete,
 	listUsers,
 	resetError
 }
@@ -38,6 +39,18 @@ function logout() {
 	function success() { return { type: userConstants.LOGOUT} };
 	function error(error) { return { type: userConstants.ERROR, payload: error } };
 };
+
+function _delete(id) {
+	return dispatch => {
+		localStorageService._delete(id).then((response) => {
+			dispatch(success(response));
+		}, (err) => {
+			dispatch(error(err));
+		});
+	}
+	function success(users) { return { type: userConstants.DELETE, users} };
+	function error(err) { return { type: userConstants.ERROR, payload: err } };	
+}
 
 function listUsers() {
 	console.log("List Users");
