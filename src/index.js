@@ -8,7 +8,9 @@ import * as serviceWorker from './serviceWorker';
 import userReducer from './reducers';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Login, Register, Main } from './components';
+import Login from './components/login';
+import Main from './components/main';
+import Register from './components/register';
 import thunk from 'redux-thunk';
 
 const store = createStore(userReducer, applyMiddleware(thunk));

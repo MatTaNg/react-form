@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { userActions } from './../actions';
 import './../styles/main.css';
 
-export class Register extends PureComponent {
+ export class Register extends PureComponent {
 
 	constructor(props) {
 		super(props);

@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { userActions } from '../actions';
 import './../styles/main.css';
 
-export class Main extends Component {
+ export class Main extends Component {
 	constructor(props) {
 		super(props);
 	}

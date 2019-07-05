@@ -16,7 +16,8 @@ export function userReducer(state = initialState, action) {
 			console.log("ASDF", originalState);
 			return originalState;
 		case userConstants.LOGOUT:
-			originalState = {loggedInUser: ''};
+			console.log("TEST", originalState);
+			originalState.loggedInUser = '';
 			console.log("TEST", originalState);
 			return originalState;
 		case userConstants.LIST_USERS:
