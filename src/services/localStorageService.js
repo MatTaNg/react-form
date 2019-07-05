@@ -23,6 +23,7 @@ function logout() {
 };
 
 function login(userName, password) {
+	console.log("TEST");
 	return new Promise((resolve, reject) => {
 		let currentUsers = users.filter(user => {
 	        return user.userName === userName && user.password === password;

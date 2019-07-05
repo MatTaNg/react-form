@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register renders without crashing 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Register
+      dispatch={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "payload": "",
+                "type": "RESET_ERROR",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      error=""
+    >
+      <section
+        className="container"
+      >
+        <div
+          className="content"
+        >
+          <h1
+            className="heading"
+          >
+            Register
+          </h1>
+          <form
+            className="form"
+            name="registrationForm"
+            onSubmit={[Function]}
+          >
+            <label
+              className="label"
+              htmlFor="firstName"
+            >
+              First Name
+            </label>
+            <input
+              className="input"
+              name="firstName"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="label"
+              htmlFor="lastName"
+            >
+              Last Name
+            </label>
+            <input
+              className="input"
+              name="lastName"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="label"
+              htmlFor="userName"
+            >
+              User Name
+            </label>
+            <input
+              className="input"
+              name="userName"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="label"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              className="input"
+              name="password"
+              onChange={[Function]}
+              type="password"
+              value=""
+            />
+            <input
+              className="btn float-element"
+              id="register"
+              name="submit"
+              type="submit"
+              value="Register"
+            />
+          </form>
+          <Link
+            className="btn"
+            to="/login"
+          >
+            <a
+              className="btn"
+              href="/login"
+              onClick={[Function]}
+            >
+              Cancel
+            </a>
+          </Link>
+          <br />
+          <span
+            className="error"
+          />
+        </div>
+      </section>
+    </Register>
+  </Router>
+</BrowserRouter>
+`;

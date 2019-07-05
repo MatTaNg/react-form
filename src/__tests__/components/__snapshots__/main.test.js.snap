@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main renders without crashing 1`] = `
+<Main
+  dispatch={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          [Function],
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  user="test_user"
+  users={
+    Array [
+      Object {
+        "userName": "matt",
+      },
+    ]
+  }
+>
+  <section
+    className="container"
+  >
+    <div
+      className="content content-main"
+    >
+      <h1
+        className="heading"
+      >
+        Welcome 
+        test_user
+         ! 
+      </h1>
+      <ol>
+        <li
+          key="0"
+        >
+          matt
+          <span
+            className="delete"
+            onClick={[Function]}
+            value={0}
+          >
+             Delete 
+          </span>
+        </li>
+      </ol>
+      <button
+        className="btn"
+        id="logout"
+        onClick={[Function]}
+      >
+        Log Out
+      </button>
+    </div>
+  </section>
+</Main>
+`;

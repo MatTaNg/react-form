@@ -16,7 +16,7 @@ export const userActions = {
 function login(username, password) { 
 	let user = { userName: username, password: password };
 	return dispatch => {
-		localStorageService.login(username, password).then((response) => {
+	 	localStorageService.login(username, password).then((response) => {
 			dispatch(resetError());
 			dispatch(success( { type: userConstants.LOGIN, user} )); 
 		}, (err) => {
@@ -24,7 +24,7 @@ function login(username, password) {
 		});	
 	};
 	
-	function success(user) { return { type: userConstants.LOGIN, payload: user } };
+	function success(user) { console.log("SUCCESS"); return { type: userConstants.LOGIN, payload: user } };
 };
 
 function logout() { 
@@ -75,6 +75,7 @@ function register(user) {
 };
 
 function resetError() {
+	console.log("RESET ERROR");
 	return { type: userConstants.RESET_ERROR, payload: "" };
 };
 

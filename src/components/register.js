@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom'
 import { userActions } from './../actions';
 import './../styles/main.css';
 
-class Register extends PureComponent {
+export class Register extends PureComponent {
 
 	constructor(props) {
 		super(props);
-
 		this.props.dispatch(userActions.resetError());
 		this.state = {
 			user: {
@@ -32,13 +31,14 @@ class Register extends PureComponent {
         });
 	}
 
-	submitForm = async (e) => {
+	submitForm = (e) => {
         e.preventDefault();
 
         const { user } = this.state;
         const { dispatch } = this.props;
+        console.log("USER", this.state);
         if (user.firstName && user.lastName && user.userName && user.password) {
-            await this.props.dispatch(userActions.register(user));
+            this.props.dispatch(userActions.register(user));
             if(this.props.error === "") {
 	    		this.props.history.push("/login");	
 			}
@@ -69,7 +69,7 @@ class Register extends PureComponent {
 						<label className="label" htmlFor="password">Password</label>
 						<input className="input" type="password" name="password" value={user.password} onChange={this.handleFormChange} />
 
-						<input className="btn float-element" type="submit" name="submit" value="Register" />
+						<input className="btn float-element" type="submit" id="register" name="submit" value="Register" />
 					</form>
 				
 	      		 	<Link className="btn" to="/login">Cancel</Link>
@@ -89,4 +89,4 @@ function mapStateToProps(state) {
 }
 
 const connectedRegisterPage = connect(mapStateToProps)(Register);
-export { connectedRegisterPage as Register };
+export default connectedRegisterPage;

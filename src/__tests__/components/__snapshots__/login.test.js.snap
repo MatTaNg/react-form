@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokedex renders without crashing 1`] = `
+<Login
+  dispatch={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "payload": "",
+            "type": "RESET_ERROR",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  error=""
+  loggedInUser=""
+>
+  <section
+    className="container"
+  >
+    <div
+      className="content"
+    >
+      <h1
+        className="heading"
+      >
+        Login
+      </h1>
+      <form
+        className="form"
+      >
+        <label
+          className="label"
+          htmlFor="username"
+        >
+          User Name:
+        </label>
+        <input
+          className="input"
+          id="username"
+          name="username"
+          onChange={[Function]}
+          type="text"
+        />
+        <label
+          className="label"
+          htmlFor="password"
+        >
+          Password:
+        </label>
+        <input
+          className="input"
+          id="password"
+          name="password"
+          onChange={[Function]}
+          type="password"
+        />
+        <input
+          className="btn float-element"
+          id="login"
+          onClick={[Function]}
+          type="submit"
+          value="Login"
+        />
+      </form>
+      <Link
+        className="btn"
+        to="/register"
+      >
+        <a
+          className="btn"
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+      </Link>
+      <br />
+      <span
+        className="error"
+      />
+    </div>
+  </section>
+</Login>
+`;
+
+exports[`Should redirect if user is already loggedIn 1`] = `null`;

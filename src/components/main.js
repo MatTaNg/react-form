@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { userActions } from '../actions';
 import './../styles/main.css';
 
-class Main extends Component {
+export class Main extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -15,7 +15,7 @@ class Main extends Component {
 	}
 
 	handleLogOut = () => {
-		this.props.dispatch(userActions.logout());
+	  	this.props.dispatch(userActions.logout());
 	};
 
 	deleteUser = id => e => {
@@ -25,6 +25,7 @@ class Main extends Component {
 	makeUserList = () => {	
 		let result = [];
 		for(let i = 0; i < this.props.users.length; i++) {
+			console.log("1");
 			result.push(
 				<li key={i}>{this.props.users[i].userName} 
 					<span value={i} className="delete" onClick={this.deleteUser(this.props.users[i].id)}> Delete </span> 
@@ -32,7 +33,7 @@ class Main extends Component {
 		}
 		return this.props.users.length === 0 ? [] : result;
 	}
-
+ 
 	render() {
 		let userList = this.makeUserList();
 		if(this.props.user === "") {
@@ -45,7 +46,7 @@ class Main extends Component {
 					<ol>
 						{ userList }
 					</ol>
-	  		 		<button className="btn" onClick={this.handleLogOut} >Log Out</button>
+	  		 		<button id="logout" className="btn" onClick={this.handleLogOut} >Log Out</button>
   		 		</div>
 			</section>
 		);
@@ -53,11 +54,11 @@ class Main extends Component {
 }
 
 function mapStateToProps(state) {
-    return {
+    return { 
         user: state.userReducer.loggedInUser,
         users: state.userReducer.users
     };
 }
 
 const connectedRegisterPage = connect(mapStateToProps)(Main);
-export { connectedRegisterPage as Main };
+export default connectedRegisterPage;

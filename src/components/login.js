@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { userActions } from './../actions';
 import './../styles/main.css';
 
-class Login extends PureComponent {
+export class Login extends PureComponent {
 
 	constructor(props) {
 		super(props);
@@ -47,7 +47,7 @@ class Login extends PureComponent {
 		      		 	<label className="label" htmlFor="password">Password:</label>
 		      		 	<input className="input" name="password" type="password" onChange={this.handleChange} id="password"/>
 
-		      		 	<input className="btn float-element" type="submit" onClick={this.login} value="Login"></input>
+		      		 	<input className="btn float-element" id="login" type="submit" onClick={this.login} value="Login"></input>
 	      		 	</form>
 
 	      		 	<Link className="btn" to="/register">Register</Link>
@@ -83,4 +83,4 @@ const connectedLoginPage = connect(
 	mapStateToProps
 	)(Login);
 
-export { connectedLoginPage as Login};
+export default connectedLoginPage;
