@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/react-form-backend" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-aop-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-aspects-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-beans-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-indexer-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-support-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-core-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-expression-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-instrument-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jcl-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jdbc-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jms-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-messaging-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-orm-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-oxm-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-test-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-tx-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-web-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-webflux-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-webmvc-5.2.8.RELEASE.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-websocket-5.2.8.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-aop-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-aspects-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-beans-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-indexer-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-support-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-core-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-expression-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-instrument-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jcl-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jdbc-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jms-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-messaging-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-orm-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-oxm-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-test-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-tx-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-web-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-webflux-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-webmvc-5.2.8.RELEASE-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-websocket-5.2.8.RELEASE-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-aop-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-aspects-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-beans-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-indexer-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-context-support-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-core-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-expression-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-instrument-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jcl-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jdbc-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-jms-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-messaging-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-orm-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-oxm-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-test-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-tx-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-web-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-webflux-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-webmvc-5.2.8.RELEASE-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Tutorials/spring-5.2.8.RELEASE-dist/spring-framework-5.2.8.RELEASE/libs/spring-websocket-5.2.8.RELEASE-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../Tutorials/commons-logging-1.2/commons-logging-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../JUnit/junit-4.10.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC>
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/documentation" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonDynamoDB" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonDynamoDBDocumentAPI/quick-start" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonEC2SpotInstances-Advanced" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonEC2SpotInstances-GettingStarted" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonKinesis" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonKinesisFirehose" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonS3" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonS3TransferProgress" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonSimpleEmailService" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AmazonSimpleQueueService" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AwsCloudFormation" />
+          <root url="file://$USER_HOME$/Downloads/aws-java-sdk-1.11.856/aws-java-sdk-1.11.856/samples/AwsConsoleApp" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

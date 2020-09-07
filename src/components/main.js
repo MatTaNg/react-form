@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import { userActions } from '../actions';
 import './../styles/main.css';
@@ -25,10 +25,9 @@ import './../styles/main.css';
 	makeUserList = () => {	
 		let result = [];
 		for(let i = 0; i < this.props.users.length; i++) {
-			console.log("1");
 			result.push(
 				<li key={i}>{this.props.users[i].userName} 
-					<span value={i} className="delete" onClick={this.deleteUser(this.props.users[i].id)}> Delete </span> 
+					<span value={i} className="delete" onClick={this.deleteUser(this.props.users[i].userName)}> Delete </span> 
 				</li>);
 		}
 		return this.props.users.length === 0 ? [] : result;

@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { userActions } from './../../actions';
 
-// jest.mock('./__mocks__/api');
 let wrapper;
 let dispatch;
 let props;

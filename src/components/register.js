@@ -31,19 +31,18 @@ import './../styles/main.css';
         });
 	}
 
-	submitForm = (e) => {
+	submitForm = async (e) => {
         e.preventDefault();
 
         const { user } = this.state;
-        const { dispatch } = this.props;
-        console.log("USER", this.state);
+        const { dispatch, history } = this.props;
         if (user.firstName && user.lastName && user.userName && user.password) {
-            this.props.dispatch(userActions.register(user));
+			await dispatch(userActions.register(user));
             if(this.props.error === "") {
-	    		this.props.history.push("/login");	
+	    		history.push("/login");	
 			}
         } else {
-        	this.props.dispatch(userActions.error("Form Incomplete"));
+        	dispatch(userActions.error("Form Incomplete"));
         }
 
 	}

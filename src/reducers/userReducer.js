@@ -1,4 +1,3 @@
-import { createStore } from 'redux'
 import { userConstants } from '../constants';
 
 const initialState = {
@@ -13,12 +12,9 @@ export function userReducer(state = initialState, action) {
 		case userConstants.LOGIN:
 			let newUserName = action.payload.user.userName;
 			originalState.loggedInUser = newUserName;
-			console.log("ASDF", originalState);
 			return originalState;
 		case userConstants.LOGOUT:
-			console.log("TEST", originalState);
 			originalState.loggedInUser = '';
-			console.log("TEST", originalState);
 			return originalState;
 		case userConstants.LIST_USERS:
 			originalState.users = [...action.users];

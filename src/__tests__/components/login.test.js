@@ -24,7 +24,6 @@ let dispatch;
 let props;
 
 const filterKeys = (state) => {
-console.log("State", state.node.instance.history.location);
   if (state.routes) { 
     return {
       ...state,
@@ -37,7 +36,7 @@ console.log("State", state.node.instance.history.location);
   return state
 }
 
-describe("Pokedex", () => {
+describe("Login", () => {
 
 	beforeEach(() => {
 		dispatch = jest.fn();
