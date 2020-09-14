@@ -1,0 +1,62 @@
+package com.reactform.backend.reactformbackend;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+
+import security.AuthenticationRequest;
+import security.AuthenticationResponse;
+import security.JwtUtil;
+import security.MyUserDetailsService;
+import security.AccountsService;
+
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class AccountsResource {
+
+  @Autowired
+  private AccountsService accountsService;
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private JwtUtil jwtTokenUtil;
+  
+  	@Autowired
+  	private MyUserDetailsService userDetailsService;
+
+
+  @ResponseBody
+  //? This should really be a GET but "Request method 'GET' not supported in Spring Boot Controller" exception occurs
+//  @GetMapping("users")
+  @PostMapping("accounts")
+  public List<Account> getUsers() {
+    return accountsService.getAccounts();
+  }
+
+  @ResponseBody
+  @PutMapping("accounts/{userName}")
+  public Account editUserName(@PathVariable  String userName, @RequestBody Account account) {
+    return accountsService.editUserName(account, userName);
+  }
+
+  @DeleteMapping("accounts/{userName}")
+  public Account deleteUser(@PathVariable  String userName) {
+    return accountsService.deleteAccount(userName);
+  }
+  
+
+}

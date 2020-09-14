@@ -1,0 +1,71 @@
+package com.reactform.backend.reactformbackend;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+
+import security.AuthenticationRequest;
+import security.AuthenticationResponse;
+import security.JwtUtil;
+import security.MyUserDetailsService;
+import security.UsersService;
+
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class UsersResource  {
+
+  @Autowired
+  private UsersService usersService;
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private JwtUtil jwtTokenUtil;
+  
+  	@Autowired
+  	private MyUserDetailsService userDetailsService;
+
+  @ResponseBody
+  @GetMapping("users/{userName}")
+  public boolean findUser(@PathVariable String userName) {
+    return usersService.findUser(userName);
+  }
+
+  @ResponseBody
+  @GetMapping("users")
+  public List<Users> getUsers() {
+    return usersService.getUsers();
+  }
+
+  @ResponseBody
+  @PostMapping("users")
+  public List<Users> addUser(@RequestBody Users user) {
+    return usersService.addUser(user);
+  }
+
+  @ResponseBody
+  @PutMapping("users/{userName}")
+  public List<Users> editUsername(@PathVariable  String userName, @RequestBody Users user) {
+    return usersService.editUserName(user, userName);
+  }
+
+  @DeleteMapping("users/{userName}")
+  public List<Users> deleteUser(@PathVariable  String userName) {
+    return usersService.deleteUser(userName);
+  }
+  
+
+}

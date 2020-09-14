@@ -1,0 +1,8 @@
+package amazonWebServices;
+
+public class Connect {
+	AWSCredentials credentials = new BasicAWSCredentials(
+			  "<AWS accesskey>", 
+			  "<AWS secretkey>"
+			);
+}

@@ -1,0 +1,5 @@
+package security;
+
+public class AmazonS3Service {
+
+}

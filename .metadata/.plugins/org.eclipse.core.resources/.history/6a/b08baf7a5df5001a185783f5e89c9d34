@@ -1,0 +1,5 @@
+amazonProperties:
+  endpointUrl: https://s3.us-east-1.amazonaws.com
+  accessKey: XXXXXXXXXXXXXXXXX
+  secretKey: XXXXXXXXXXXXXXXXXXXXXXXXXX
+  bucketName: react-form123456789

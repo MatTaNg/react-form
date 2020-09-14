@@ -1,0 +1,44 @@
+package amazonWebServices;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
+
+import security.AmazonClient;
+
+@RestController
+@RequestMapping("/storage/")
+public class BucketController {
+
+    private AmazonClient amazonClient;
+
+    @Autowired
+    BucketController(AmazonClient amazonClient) {
+        this.amazonClient = amazonClient;
+    }
+    
+    @GetMapping("/listUsers")
+    public void listUsers() {
+        ObjectListing objectListing = amazonClient.getS3Client().listObjects(amazonClient.getBucketName());
+        for(S3ObjectSummary os : objectListing.getObjectSummaries()) {
+     	    System.out.println(os.getKey());
+     	}
+    }
+
+//    @PostMapping("/uploadFile")
+//    public String uploadFile(@RequestPart(value = "file") MultipartFile file) {
+//        return this.amazonClient.uploadFile(file);
+//    }
+//
+//    @DeleteMapping("/deleteFile")
+//    public String deleteFile(@RequestPart(value = "url") String fileUrl) {
+//        return this.amazonClient.deleteFileFromS3Bucket(fileUrl);
+//    }
+}

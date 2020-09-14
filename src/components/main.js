@@ -19,7 +19,7 @@ import './../styles/main.css';
 	};
 
 	deleteUser = id => e => {
-		this.props.dispatch(userActions._delete(id));		
+		this.props.dispatch(userActions._delete(id));	
 	}
 
 	makeUserList = () => {	

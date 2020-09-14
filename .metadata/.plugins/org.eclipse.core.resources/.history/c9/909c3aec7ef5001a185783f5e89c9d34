@@ -1,0 +1,182 @@
+package security;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
+import com.amazonaws.util.StringUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.reactform.backend.reactformbackend.Account;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import javax.annotation.PostConstruct;
+
+@Service
+public class AccountsService {
+	
+	private static Map<String, Account> accounts = new HashMap<String, Account>();
+
+//    private AmazonClient amazonClient;
+    private AmazonS3 s3client;
+
+    @Value("${amazonProperties.endpointUrl}")
+    private String endpointUrl;
+    @Value("${amazonProperties.bucketName}")
+    private String bucketName;
+    @Value("${amazonProperties.accessKey}")
+    private String accessKey;
+    @Value("${amazonProperties.secretKey}")
+    private String secretKey;
+    
+	@PostConstruct
+    private void initializeAmazon() {
+       AWSCredentials credentials = new BasicAWSCredentials(this.accessKey, this.secretKey);
+       this.s3client = new AmazonS3Client(credentials);
+	}
+
+  public List<Account> getAccounts() {
+	  System.out.println("getAccounts");
+	  
+	  S3Object s3object = s3client.getObject(bucketName, "testData.txt");
+	  S3ObjectInputStream inputStream = s3object.getObjectContent();
+	  BufferedReader reader = new BufferedReader(new InputStreamReader(s3object.getObjectContent()));
+	  String line;
+	  
+	  try {
+		  
+		  while((line = reader.readLine()) != null) {
+			  // can copy the content locally as well
+			  // using a buffered writer
+			  System.out.println(line);
+		  }
+	  }
+	  catch(Exception e) {
+		  System.out.println("Exception");
+		  System.out.println(e);
+	  }
+//	  String contents = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+//	  FileUtils.copyInputStreamToFile(inputStream, new File("/Users/user/Desktop/hello.txt"));
+
+	  
+//        ObjectListing objectListing = s3client
+//        		.listObjects(bucketName);
+//        for(S3ObjectSummary os : objectListing.getObjectSummaries()) {
+//     	    System.out.println(os.getKey());
+//     	}
+        return accounts.values().stream().collect(Collectors.toList());
+  }
+  public boolean addAccount(Account account) {
+	  if(accounts.containsKey(account.getUserName())) {
+		  return false;
+	  }
+	  else {
+		  ObjectMapper objectMapper = new ObjectMapper(); 
+		  byte[] bytesToWrite;
+		try {
+			//Write the account to an input stream
+//		   ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		    ObjectOutputStream oos = new ObjectOutputStream(baos);
+//
+//
+//		    oos.writeObject(account);
+//
+//		    oos.flush();
+//		    oos.close();
+//
+//		    InputStream is = new ByteArrayInputStream(baos.toByteArray());
+			
+			//Read the file
+			  S3Object s3object = s3client.getObject(bucketName, "testData.txt");
+			  S3ObjectInputStream inputStream = s3object.getObjectContent();
+			  BufferedReader reader = new BufferedReader(new InputStreamReader(s3object.getObjectContent()));
+			  String line;
+			  String accountsAsString = "";
+			  try {
+				  
+				  while((line = reader.readLine()) != null) {
+					  System.out.println(line);
+					  ObjectMapper mapper = new ObjectMapper();
+					  Account acct = mapper.readValue(line, Account.class);
+					  accountsAsString += acct.toString();
+				  }
+			  } catch(Exception e) {
+				  
+			  }
+//			  String str = getAsString(inputStream) + account.toString();
+//			System.out.println(str);
+//			System.out.println(account.toString());
+			  //Write to the file
+			  System.out.println(accountsAsString);
+			bytesToWrite = objectMapper.writeValueAsBytes(accountsAsString);
+			ObjectMetadata omd = new ObjectMetadata();
+			omd.setContentLength(bytesToWrite.length);
+			s3client.putObject(bucketName, "accounts.txt", new ByteArrayInputStream(bytesToWrite), omd);
+			accounts.put(account.getUserName(), account);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			return true;
+		}
+
+	  }
+  }
+  
+  private static String getAsString(S3ObjectInputStream is) throws IOException {
+	    if (is == null)
+	        return "";
+	    StringBuilder sb = new StringBuilder();
+	    try {
+	        BufferedReader reader = new BufferedReader(
+	                new InputStreamReader(is, StringUtils.UTF8));
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            sb.append(line);
+	        }
+	    } finally {
+	        is.close();
+	    }
+	    return sb.toString();
+	}
+  
+  public Account editUserName(Account account, String userName) {
+	  if(accounts.containsKey(account.getUserName())) {
+		  return accounts.put(userName, account);
+	  }
+	  return null;
+  }
+  public Account deleteAccount(String userName) {
+	  return accounts.remove(userName);
+  }
+  
+  public Account getByUsername(String userName) {
+	  return accounts.get(userName);
+  }
+
+}

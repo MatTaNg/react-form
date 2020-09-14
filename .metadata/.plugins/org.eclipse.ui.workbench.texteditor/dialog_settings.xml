@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="jackson"/>
+		<item key="casesensitive" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="wrap" value="true"/>
+		<item key="wholeword" value="false"/>
+		<list key="findhistory">
+			<item value="jackson"/>
+			<item value="getAsString"/>
+			<item value="is"/>
+			<item value="account"/>
+			<item value="transferManager"/>
+			<item value="commons"/>
+			<item value="ws-java-sdk"/>
+			<item value="pring-boot-starter-tes"/>
+			<item value="commons-i"/>
+			<item value="ommons-fileuploa"/>
+			<item value="pringfox-swagger-ui"/>
+			<item value="springfox-swagger"/>
+			<item value="com.amazonaw"/>
+			<item value="aws-java-sd"/>
+			<item value="pring-boot-starter-we"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Map"/>
+			<item value="Set"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_X_ORIGIN" value="182"/>
+		<item key="DIALOG_Y_ORIGIN" value="290"/>
+	</section>
+</section>

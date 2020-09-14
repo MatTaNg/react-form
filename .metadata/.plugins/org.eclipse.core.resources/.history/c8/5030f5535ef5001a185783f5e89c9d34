@@ -1,0 +1,5 @@
+package amazonWebServices;
+
+public class AmazonClient {
+
+}

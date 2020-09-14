@@ -2,6 +2,12 @@ import { userConstants } from '../constants';
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:8080';
+let access_token = '';
+axios.defaults.headers = {
+	'Content-Type': 'application/json',
+	'Authorization': `Bearer ${access_token}`
+}
+
 export const userActions = {
 	login,
 	logout,
@@ -15,16 +21,19 @@ export const userActions = {
 function login(userName, password) { 
 	let user = { userName: userName, password: password };
 	return dispatch => {
-		axios.get(`${BASE_URL}/users/${userName}`).then((response) => {
-			if(response.data === true) {
-				dispatch(resetError());
-				dispatch(success( { type: userConstants.LOGIN, user} )); 
-			}
-			else {
-				dispatch(error("Incorrect username or password"))
-			}
+		axios.post(`${BASE_URL}/login`, {
+			username: userName,
+			password: password
+		}).then((response) => {
+			localStorage.setItem('token', `Bearer ${response.data.jwt}`);
+			dispatch(resetError());
+			dispatch(success( { type: userConstants.LOGIN, user} )); 
 		}).catch((e) => {
-			dispatch(error(e));
+			if(e.message.indexOf('403') !== -1)
+				dispatch(error("Incorrect username or password"))
+			else {
+				dispatch(error("Something went wrong"))
+			}
 		})
 	};
 	
@@ -33,6 +42,8 @@ function login(userName, password) {
 
 function logout() { 
 	return dispatch => {
+		localStorage.setItem('token', '');
+		dispatch(resetError());
 		dispatch(success());
 	};
 	
@@ -40,19 +51,27 @@ function logout() {
 };
 
 function _delete(userName) {
+	const token = localStorage.getItem('token');
 	return dispatch => {
-		axios.delete(`${BASE_URL}/users/${userName}`).then((response) => {
-			dispatch(success(response.data));
+		axios.delete(`${BASE_URL}/accounts`, 
+			{
+				data: `${userName}`,
+				headers: {'Authorization': token}
+			}
+			
+		).then((response) => {
+			dispatch(success(userName));
 		}).catch((e) => {
 			dispatch(error(e));
 		})
 	}
-	function success(users) { return { type: userConstants.DELETE, users} };
+	function success(userName) { return { type: userConstants.DELETE, payload: userName} };
 }
 
 function listUsers() {
+	const token = localStorage.getItem('token');
 	return dispatch => {
-		axios.get(`${BASE_URL}/users`).then((response) => {
+		axios.get(`${BASE_URL}/accounts`, {headers: {'Authorization': token}}).then((response) => {
 			dispatch(success(response.data));
 		}).catch((e) => {
 			dispatch(error(e));
@@ -64,10 +83,9 @@ function listUsers() {
 
 function register(user) { 
 	return dispatch => {
-		return axios.post(`${BASE_URL}/users`, user).then((response) => {
-			console.log(response.data)
+		return axios.post(`${BASE_URL}/accounts`, user).then((response) => {
 			if(!response.data) {
-				dispatch(error("User already exists"))
+				dispatch(error("Account already exists"))
 			}
 			else {
 				dispatch(resetError());
