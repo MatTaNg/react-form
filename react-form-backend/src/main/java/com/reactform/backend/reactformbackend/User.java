@@ -1,4 +1,4 @@
-package src.main.java.com.reactform.backend.reactformbackend;
+package com.reactform.backend.reactformbackend;
 
 public class User {
 	private String firstName;

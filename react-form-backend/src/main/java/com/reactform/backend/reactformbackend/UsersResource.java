@@ -1,4 +1,4 @@
-package src.main.java.com.reactform.backend.reactformbackend;
+package com.reactform.backend.reactformbackend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
